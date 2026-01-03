@@ -384,3 +384,66 @@ const createCustomCursor = () => {
 // createCustomCursor();
 
 console.log('DigitalSelf: All systems operational');
+
+// ========================================
+// MOBILE NAVIGATION TOGGLE
+// ========================================
+
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+const navLinks = document.querySelectorAll('.nav-link');
+
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+}
+
+// ========================================
+// ACTIVE SECTION HIGHLIGHTING
+// ========================================
+
+const sections = document.querySelectorAll('section[id]');
+
+const highlightActiveSection = () => {
+    const scrollPosition = window.scrollY + 150; // Offset for nav height
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            // Remove active class from all links
+            navLinks.forEach(link => link.classList.remove('active'));
+            // Add active class to current section link
+            if (navLink) {
+                navLink.classList.add('active');
+            }
+        }
+    });
+};
+
+// Initial check
+highlightActiveSection();
+
+// On scroll
+window.addEventListener('scroll', throttle(highlightActiveSection, 100));
