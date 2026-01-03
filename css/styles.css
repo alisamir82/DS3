@@ -340,14 +340,7 @@ body {
    DIVIDER SECTIONS
    ======================================== */
 
-.divider {
-    position: relative;
-    height: 30vh;
-    background-image: url('../assets/images/atmospheric_divider.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
+
 
 /* ========================================
    PLATFORM SECTION
@@ -1071,6 +1064,4 @@ body {
     z-index: 10;
 }
 
-.divider {
-    z-index: 1;
-}
+
