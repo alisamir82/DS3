@@ -1047,4 +1047,30 @@ body {
     .hero-content {
         margin-top: 20px;
     }
+    
+    .nav-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-menu {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-right: var(--spacing-md);
+    }
+    
+    .nav-menu::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Footer Z-Index Fix */
+.footer {
+    position: relative;
+    z-index: 10;
+}
+
+.divider {
+    z-index: 1;
 }
