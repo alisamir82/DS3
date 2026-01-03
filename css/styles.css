@@ -1037,3 +1037,14 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Mobile Navigation Fix */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 80px;
+    }
+    
+    .hero-content {
+        margin-top: 20px;
+    }
+}
