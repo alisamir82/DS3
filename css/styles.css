@@ -85,6 +85,17 @@ body {
     color: var(--color-accent-warm);
 }
 
+.nav-logo .logo-image {
+    height: 40px;
+    width: auto;
+    display: block;
+    transition: opacity var(--transition-fast);
+}
+
+.nav-logo .logo-image:hover {
+    opacity: 0.8;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
